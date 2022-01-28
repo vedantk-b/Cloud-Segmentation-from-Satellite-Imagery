@@ -1,5 +1,6 @@
 # Cloud-Segmentation-UNET
-This repository contains the first model which I tried on cloud dataset from sentinel satellite for cloud segmentation. The model was UNET trained for 15 epochs and the loss function used was BinaryCrossEntropy with Logits. For, validation IoU was used. Accuracy of 81.39% could be achieved on the validation set using this model.
+This repository contains the first model which I tried on cloud dataset from sentinel satellite for cloud segmentation. The model was UNET trained for 15 epochs and the loss function used was BinaryCrossEntropy with Logits. For, validation IoU was used. There were 7189 images in training dataset and 4811 images on validataion dataset. Each Image had 4 channels - Red, Green, Blue and Infrared.
+Accuracy of 81.39% could be achieved on the validation set using this model.
 
 -- Some Snaps of Result --
 
