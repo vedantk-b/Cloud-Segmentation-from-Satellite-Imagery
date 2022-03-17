@@ -1,6 +1,11 @@
-# Cloud-Segmentation-UNET
-This repository contains the first model which I tried on cloud dataset from sentinel satellite for cloud segmentation. The model was UNET trained for 15 epochs and the loss function used was BinaryCrossEntropy with Logits. For, validation IoU was used. There were 7189 images in training dataset and 4811 images on validataion dataset. Each Image had 4 channels - Red, Green, Blue and Infrared.
-Accuracy of 81.39% could be achieved on the validation set using this model.
+# Cloud-Segmentation from Sentinel 10 Satellite Imagery
+
+## Overview 
+
+- Satellite imagery is critical for a wide variety of applications from disaster management and recovery, to agriculture, to military intelligence. Clouds present a major obstacle for all of these use cases, and usually have to be identified and removed from a dataset before satellite imagery can be used. Improving methods of identifying clouds can unlock the potential of an unlimited range of satellite imagery use cases, enabling faster, more efficient, and more accurate image-based research.
+- Our goal was to detect cloud cover in satellite imagery to remove cloud interference. The challenge used publicly available satellite data from the Sentinel-2 mission, which captures wide-swath, high-resolution, multi-spectral imaging. For each tile, data is separated into different bands of light across the full visible spectrum, near-infrared, and infrared light.
+- 
+
 
 -- Some Snaps of Result --
 
