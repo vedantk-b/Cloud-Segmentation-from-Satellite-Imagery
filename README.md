@@ -13,6 +13,7 @@
 - The submission file for 4 channels was simple because all the 4 channels were present in the remote computer.
 - The 12 channel submission file downloaded the other channels for a particular image on the remote server, predicted and saved and did the same for each image.
 
+### The best accuracy was achieved with DeepLabV3plus with Resnet101 encoder.
 
 -- Some Snaps of Result --
 
