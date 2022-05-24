@@ -3,8 +3,6 @@ import pandas as pd
 import rasterio
 import torch
 from typing import Optional, List
-# import albumentations as A
-# from albumentations.pytorch.transforms import ToTensorV2
 
 
 class CloudDataset(torch.utils.data.Dataset):
@@ -12,20 +10,6 @@ class CloudDataset(torch.utils.data.Dataset):
     dictionary containing chip ids, image tensors, and
     label masks (where available).
     """
-    # train_transforms = A.Compose(
-    #     [
-    #         A.Resize(height=128, width=128),
-    #         A.Rotate(limit=35, p=1.0),
-    #         A.HorizontalFlip(p=0.5),
-    #         A.VerticalFlip(p=0.5),
-    #         A.Normalize(
-    #             mean=0.0,
-    #             std=1.0,
-    #             max_pixel_value=255.0,
-    #         ),
-    #         ToTensorV2(),
-    #     ],
-    # )
     def __init__(
         self,
         x_paths: pd.DataFrame,
@@ -55,13 +39,13 @@ class CloudDataset(torch.utils.data.Dataset):
     def __getitem__(self, idx: int):
         # Loads an n-channel image from a chip-level dataframe
         img = self.data.loc[idx]
-        band_arrs = []
+        band_arr = []
         for band in self.bands:
             with rasterio.open(img[f"{band}_path"]) as b:
                 band_arr = b.read(1).astype("float32")
-            band_arrs.append(band_arr)
-        x_arr = np.stack(band_arrs, axis=-1)
-        
+            band_arr.append(band_arr)
+        x_arr = np.stack(band_arr, axis=-1)
+
         # Load label if available
         if self.label is not None:
             label_path = self.label.loc[idx].label_path
@@ -71,14 +55,7 @@ class CloudDataset(torch.utils.data.Dataset):
         # Apply data augmentations, if provided
         if self.transforms is not None:
             augmentations = self.transforms(image=x_arr, mask=y_arr)
-            
             x_arr = augmentations["image"]
             y_arr = augmentations["mask"]
-            
-            # x_arr = self.transforms(image=x_arr)["image"]
-        # x_arr = np.transpose(x_arr, [2, 0, 1])
-
-        # Prepare dictionary for item
         item = {"chip_id": img.chip_id, "chip": x_arr, "label": y_arr}
-
         return item
