@@ -1,4 +1,4 @@
-# Cloud-Segmentation on satellite data from the [Sentinel-2](https://sentinel.esa.int/web/sentinel/missions/sentinel-2) mission.
+# Cloud-Segmentation on satellite imagery data from the [Sentinel-2](https://sentinel.esa.int/web/sentinel/missions/sentinel-2) mission.
 
 ## Problem Description
 To obtain adequate analytical results from multi-spectral satellite imagery, it is essential to precisely detect clouds and mask them out from any Earth surface as they obscure important ground-level features in satellite images, complicating their use in wide variety of applications from disaster management and recovery, to agriculture, to military intelligence. Thus, Improving methods of identifying clouds can unlock the potential of an unlimited range of satellite imagery use cases, enabling faster, more efficient, and more accurate image-based research.
